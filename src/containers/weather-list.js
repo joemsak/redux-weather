@@ -9,7 +9,7 @@ class WeatherList extends Component {
     this.renderWeather = this.renderWeather.bind(this);
   }
 
-  convertToFarhenheit(temps) {
+  convertKelvinToFarhenheit(temps) {
     return _.map(temps, (temp) => {
       return (temp - 273.15) * 1.8000 + 32.00;
     });
@@ -17,7 +17,7 @@ class WeatherList extends Component {
 
   renderWeather(cityData) {
     const temps = cityData.list.map(weather => weather.main.temp);
-    const convertedTemps = this.convertToFarhenheit(temps);
+    const convertedTemps = this.convertKelvinToFarhenheit(temps);
     const pressures = cityData.list.map(weather => weather.main.pressure);
     const humidities = cityData.list.map(weather => weather.main.humidity);
 
